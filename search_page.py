@@ -2,9 +2,10 @@ from __future__ import annotations
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.remote.webelement import WebElement
-from pages import BasePage
+
 from locators import SearchPageLocators
+from pages import BasePage
+
 
 class Search(BasePage):
 

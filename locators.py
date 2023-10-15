@@ -3,6 +3,11 @@ from selenium.webdriver.common.by import By
 class MainPageLocators():
     SEARCH_INPUT = (By.XPATH, "//input[@id='top-s']")
     LOGIN_BUTTON = (By.XPATH, "//span[text()='Войти']")
+    STATIC_BOOKS_MENU = (By.XPATH, "//ul[@id='staticmenu_body_books']")
+    BOOKS_CONTAINER_GRID_PIN = (By.XPATH, "//div[@id= 'category_goods_container_books' and @class = 'b-main-pgs h-mpgs-grid-1']")
+    BOOKS_CONTAINER_GRID_NOPIN = (
+    By.XPATH, "//div[@id= 'category_goods_container_books' and @class = 'b-main-pgs h-mpgs-grid-1 mpgs-nopin']")
+
 
 class SearchPageLocators():
     EMPTY_SEARCH_RESULTS = (By.XPATH, "//p[text() = 'Проверьте написан ли запрос без ошибок, или уменьшите количество слов в запросе.']")

@@ -12,6 +12,9 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+from selenium.webdriver.common.action_chains import ActionChains
+
 from const import TIMEOUTS
 
 class BasePage:
@@ -49,6 +52,15 @@ class BasePage:
         element = self.find_element(locator, timeout)
         element.click()
         return element
+
+    def scroll_page_down(self):
+        self.driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
+
+    def scroll_to_element(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT):
+        js_code = "arguments[0].scrollIntoView();"
+        element = self.find_element(locator, timeout)
+        self.driver.execute_script(js_code, element)
+
 
 
 

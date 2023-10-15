@@ -32,7 +32,6 @@ class Search(BasePage):
         to_price_input = self.find_element((By.CSS_SELECTOR, "input[name = 'r_cost[to]']"))
         to_price_input.send_keys(to_price)
         to_price_input.send_keys(Keys.ENTER)
-        # assert self.is_exists(SearchPageLocators.SHOW_FILTER_BY_PRICE_RESULTS_LINK)
         self.click_to(SearchPageLocators.SHOW_FILTER_BY_PRICE_RESULTS_LINK)
 
 

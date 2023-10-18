@@ -27,7 +27,7 @@ class LoginPage(BasePage):
         email_input.send_keys(email_value)
 
     def clear_filled_email_field(self):
-        self.click_to((By.XPATH, "//div[@class = 'i-input-group__cell']//input[@type = 'email']")).clear()
+        self.click_to(LoginPageLocators.EMAIL_INPUT).clear()
 
 
     def enter_password(self, password_value: str):
@@ -56,33 +56,3 @@ class LoginPage(BasePage):
     def is_phone_error_msg_correct(self):
         phone_error_msg = self.find_element((By.XPATH, "//div[text()='Введите номер мобильного телефона белорусских опереторов']"))
         return phone_error_msg.text
-
-
-
-
-
-    # def get_subjects(self) -> tuple[str]:
-    #     return tuple([option.text for option in self.get_subject_options()])
-    #
-    # def set_subject(self, subject: str):
-    #     self.click_to((By.XPATH, '//select[@name="themeId"]'))
-    #     self.click_to((By.XPATH, f'//select[@name="themeId"]/option[contains(text(), "{subject}")]'))
-    #
-    # def get_current_subject_text(self) -> str:
-    #     for option in self.get_subject_options():
-    #         if option.is_selected:
-    #             return option.text
-    #     else:
-    #         raise Exception('No options selected in subject dropdown')
-    #
-    # def click_to_personal_agreement_checkbox(self):
-    #     wrapper = self.find_element((By.CSS_SELECTOR, '.base-checkbox__square_personalagreement'))
-    #     wrapper.click()
-    #     time.sleep(2)
-    #
-    # def is_personal_agreement_checked(self):
-    #     checkbox = self.find_element((By.XPATH, '//input[@id="personalAgreement"]'))
-    #     return checkbox.is_selected()
-    #
-    # def is_mandatory_field_label_has_appeared(self):
-    #     return self.is_exists((By.CSS_SELECTOR, '.base-checkbox__error_personalagreement'))

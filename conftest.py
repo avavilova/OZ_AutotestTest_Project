@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 from const import BASE_URL, BROWSER, BROWSER_NAME, HEADLESS, HEADLESS_OPTION
-from main_page import MainPage
+from pages.main_page import MainPage
 
 def get_browser_class():
     if BROWSER == BROWSER_NAME.CHROME:

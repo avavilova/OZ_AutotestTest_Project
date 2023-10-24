@@ -24,7 +24,7 @@ class BasePage:
         condition = EC.presence_of_element_located(locator)
         return WebDriverWait(self.driver, timeout).until(condition)
 
-    # def find_element(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT, clickable=True) -> WebElement:
+    # def find_clickable_element(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT) -> WebElement:
     #     condition = EC.element_to_be_clickable(locator) if clickable else EC.presence_of_element_located(locator)
     #     return WebDriverWait(self.driver, timeout).until(condition)
 

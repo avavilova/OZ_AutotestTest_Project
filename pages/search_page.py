@@ -5,8 +5,8 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from locators import SearchPageLocators
-from pages import BasePage
+from pages.locators import SearchPageLocators
+from pages.main_page import BasePage
 
 
 class Search(BasePage):
@@ -34,7 +34,7 @@ class Search(BasePage):
         to_price_input = self.find_element((By.CSS_SELECTOR, "input[name = 'r_cost[to]']"))
         to_price_input.send_keys(to_price)
         to_price_input.send_keys(Keys.ENTER)
-        time.sleep(5)
+        time.sleep(2)
         self.click_to(SearchPageLocators.SHOW_FILTER_BY_PRICE_RESULTS_LINK)
 
 

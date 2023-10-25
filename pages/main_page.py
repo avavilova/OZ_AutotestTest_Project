@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -7,7 +8,6 @@ from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from pages.login_page import LoginPage
 from pages.search_page import Search
-from selenium.webdriver import ActionChains
 
 
 class MainPage(BasePage):
@@ -36,15 +36,9 @@ class MainPage(BasePage):
         self.scroll_to_element((By.XPATH, "//h2//a[text()='Книги']"))
 
     def is_home_sub_menu_displayed_by_hover(self):
-        home_sub_menu = self.find_element((By.XPATH, "//a[@href='/home/' and @class='menu-link-action main-nav__list__item ']"))
+        home_sub_menu = self.find_element(
+            (By.XPATH, "//a[@href='/home/' and @class='menu-link-action main-nav__list__item ']"))
         action = ActionChains(self.driver)
         action.move_to_element(home_sub_menu).perform()
         home_sub_menu_opened = self.find_element((By.CSS_SELECTOR, "div.global-ppnavlist__inner"))
         return home_sub_menu_opened.is_displayed()
-
-
-
-
-
-
-

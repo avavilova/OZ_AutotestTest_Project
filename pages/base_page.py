@@ -20,7 +20,7 @@ class BasePage:
         condition = EC.title_is(self.TITLE)
         return WebDriverWait(self.driver, timeout).until(condition)
 
-    def find_element(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT) -> WebElement:
+    def find_element(self, locator: tuple[any, str], timeout=TIMEOUTS.FIND_ELEMENT) -> WebElement:
         condition = EC.presence_of_element_located(locator)
         return WebDriverWait(self.driver, timeout).until(condition)
 
@@ -28,22 +28,22 @@ class BasePage:
     #     condition = EC.element_to_be_clickable(locator) if clickable else EC.presence_of_element_located(locator)
     #     return WebDriverWait(self.driver, timeout).until(condition)
 
-    def find_elements(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT) -> list[WebElement]:
+    def find_elements(self, locator: tuple[any, str], timeout=TIMEOUTS.FIND_ELEMENT) -> list[WebElement]:
         condition = EC.presence_of_all_elements_located(locator)
         return WebDriverWait(self.driver, timeout).until(condition)
 
-    def is_exists(self, locator: tuple[str]):
+    def is_exists(self, locator: tuple[any, str]):
         try:
             self.driver.find_element(*locator)
             return True
         except NoSuchElementException:
             return False
 
-    def is_not_exists(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT):
+    def is_not_exists(self, locator: tuple[any, str], timeout=TIMEOUTS.FIND_ELEMENT):
         condition = EC.presence_of_element_located(locator)
         return WebDriverWait(self.driver, timeout).until_not(condition)
 
-    def click_to(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT):
+    def click_to(self, locator: tuple[any, str], timeout=TIMEOUTS.FIND_ELEMENT):
         element = self.find_element(locator, timeout)
         element.click()
         return element
@@ -51,17 +51,7 @@ class BasePage:
     def scroll_page_down(self):
         self.driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
 
-    def scroll_to_element(self, locator: tuple[str], timeout=TIMEOUTS.FIND_ELEMENT):
+    def scroll_to_element(self, locator: tuple[any, str], timeout=TIMEOUTS.FIND_ELEMENT):
         js_code = "arguments[0].scrollIntoView();"
         element = self.find_element(locator, timeout)
         self.driver.execute_script(js_code, element)
-
-
-
-
-
-
-
-
-
-

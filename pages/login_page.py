@@ -39,21 +39,21 @@ class LoginPage(BasePage):
         self.click_to(LoginPageLocators.ENTER_BUTTON)
 
     def is_incorrect_email_msg_exist(self):
-        return self.is_exists((By.XPATH, "//div[@id = 'test']//div[text()='Введите корректный адрес электронной почты']"))
+        return self.is_exists(LoginPageLocators.INCORRECT_EMAIL_MSG)
 
     def is_incorrect_password_msg_exist(self):
-        return self.is_exists((By.XPATH, "//div[text()='Неверный пароль. Если вы потеряли или забыли пароль — ']"))
+        return self.is_exists(LoginPageLocators.INCORRECT_PASSWORD_MSG)
 
     def is_incorrect_password_msg_correct(self):
-        password_error_msg = self.find_element((By.XPATH, "//div[text()='Неверный пароль. Если вы потеряли или забыли пароль — ']"))
+        password_error_msg = self.find_element(LoginPageLocators.INCORRECT_PASSWORD_MSG)
         return password_error_msg.text
 
     def click_send_sms_button_in_phone_group(self):
         self.click_to(LoginPageLocators.SEND_SMS_BUTTON)
 
     def is_phone_error_msg_exist(self):
-        return self.is_exists((By.XPATH, "//div[text()='Введите номер мобильного телефона белорусских опереторов']"))
+        return self.is_exists(LoginPageLocators.PHONE_ERROR_MSG)
 
     def is_phone_error_msg_correct(self):
-        phone_error_msg = self.find_element((By.XPATH, "//div[text()='Введите номер мобильного телефона белорусских опереторов']"))
+        phone_error_msg = self.find_element(LoginPageLocators.PHONE_ERROR_MSG)
         return phone_error_msg.text

@@ -36,6 +36,3 @@ class Search(BasePage):
         to_price_input.send_keys(Keys.ENTER)
         time.sleep(2)
         self.click_to(SearchPageLocators.SHOW_FILTER_BY_PRICE_RESULTS_LINK)
-
-
-

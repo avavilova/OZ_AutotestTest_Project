@@ -32,7 +32,7 @@ class BasePage:
         condition = EC.presence_of_all_elements_located(locator)
         return WebDriverWait(self.driver, timeout).until(condition)
 
-    def is_exists(self, locator: tuple[any, str]):
+    def is_exists(self, locator: tuple[any, str]) -> bool:
         try:
             self.driver.find_element(*locator)
             return True
